@@ -1,0 +1,60 @@
+{
+  "call_uuid": "dummy-7b378a97-91cd-401e-8813-6705e3ea42e4",
+  "borrower_id": "BRW006",
+  "phone_number": "+916666666666",
+  "start_time": "2026-02-10T19:28:43.025634",
+  "end_time": "2026-02-10T19:29:20.012806",
+  "duration_seconds": 36.99,
+  "preferred_language": "ta-IN",
+  "final_language": "ta-IN",
+  "language_switches": 0,
+  "language_history": [],
+  "conversation": [
+    {
+      "speaker": "AI",
+      "text": "வணக்கம், நான் நிதி நிறுவனத்திலிருந்து உங்கள் கடன் செலுத்துதல் பற்றி அழைக்கிறேன். உங்கள் தற்போதைய கட்டண நிலையை தயவுசெய்து கூறுங்கள்?",
+      "timestamp": "2026-02-10T19:28:50.971325",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "நான் நாளை மறுநாள் செலுத்துகிறேன், சரியா?",
+      "timestamp": "2026-02-10T19:28:55.949440",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "நன்றி. குறிப்பிட்ட தேதியை கூற முடியுமா?",
+      "timestamp": "2026-02-10T19:29:03.083742",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "நான் பிப்ரவரி 12 அன்று செலுத்துவேன்.",
+      "timestamp": "2026-02-10T19:29:07.968834",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "நன்றி. பிப்ரவரி 12 அன்று உங்கள் கட்டணத்திற்காக காத்திருக்கிறோம்.",
+      "timestamp": "2026-02-10T19:29:13.053167",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "சரி, நன்றி.",
+      "timestamp": "2026-02-10T19:29:20.012806",
+      "language": "ta-IN"
+    }
+  ],
+  "ai_analysis": {
+    "summary": "The AI collection agent contacted the borrower regarding a loan payment. The borrower committed to making the payment on February 12th, which the AI acknowledged and confirmed.",
+    "sentiment": "Positive",
+    "sentiment_reasoning": "The borrower was cooperative, directly stated their intention to pay, provided a specific date, and ended the conversation politely.",
+    "intent": "Will Pay",
+    "intent_reasoning": "The borrower explicitly stated 'நான் நாளை மறுநாள் செலுத்துகிறேன்' (I will pay the day after tomorrow) and then specified 'நான் பிப்ரவரி 12 அன்று செலுத்துவேன்' (I will pay on February 12th), indicating a clear commitment to pay on a future date.",
+    "payment_date": "XXXX-02-12"
+  },
+  "is_dummy": true,
+  "note": "This is a simulated conversation for testing purposes. No actual call was made."
+}

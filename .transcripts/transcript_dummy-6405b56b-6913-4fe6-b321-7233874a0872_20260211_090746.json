@@ -1,0 +1,60 @@
+{
+  "call_uuid": "dummy-6405b56b-6913-4fe6-b321-7233874a0872",
+  "borrower_id": "11688",
+  "phone_number": "9342815143",
+  "start_time": "2026-02-11T09:07:41.150945",
+  "end_time": "2026-02-11T09:08:14.555954",
+  "duration_seconds": 33.41,
+  "preferred_language": "hi-IN",
+  "final_language": "hi-IN",
+  "language_switches": 0,
+  "language_history": [],
+  "conversation": [
+    {
+      "speaker": "AI",
+      "text": "नमस्ते, मैं वित्त एजेंसी से आपके लोन भुगतान के बारे में कॉल कर रहा हूं। कृपया अपनी वर्तमान भुगतान स्थिति बताएं?",
+      "timestamp": "2026-02-11T09:07:45.632949",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "मैं परसों पेमेंट कर दूंगा, ठीक है?",
+      "timestamp": "2026-02-11T09:07:50.535583",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "धन्यवाद। क्या आप कृपया विशिष्ट तारीख बता सकते हैं?",
+      "timestamp": "2026-02-11T09:07:54.882390",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "मैं 12 फरवरी को भुगतान कर दूंगा।",
+      "timestamp": "2026-02-11T09:08:02.055986",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "धन्यवाद। हम 12 फरवरी को आपके भुगतान का इंतजार करेंगे।",
+      "timestamp": "2026-02-11T09:08:08.176243",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "ठीक है, धन्यवाद।",
+      "timestamp": "2026-02-11T09:08:14.555954",
+      "language": "hi-IN"
+    }
+  ],
+  "ai_analysis": {
+    "summary": "The collection agent called the borrower regarding their outstanding loan payment. The borrower committed to making the payment on February 12th, which the agent acknowledged.",
+    "sentiment": "Positive",
+    "sentiment_reasoning": "The borrower was cooperative and clear in their communication, directly providing a specific payment date without hesitation or argument, and ended the call politely.",
+    "intent": "Will Pay",
+    "intent_reasoning": "The borrower explicitly stated their intention to make the payment on a specific date and confirmed this commitment when asked for clarification.",
+    "payment_date": "2024-02-12"
+  },
+  "is_dummy": true,
+  "note": "This is a simulated conversation for testing purposes. No actual call was made."
+}

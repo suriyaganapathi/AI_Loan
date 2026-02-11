@@ -1,0 +1,90 @@
+{
+  "call_uuid": "dummy-f6286f77-d954-4e33-83a4-7b4ac54eee54",
+  "borrower_id": "11182",
+  "phone_number": "8144444035",
+  "start_time": "2026-02-11T08:53:54.001051",
+  "end_time": "2026-02-11T08:54:59.335545",
+  "duration_seconds": 65.33,
+  "preferred_language": "en-IN",
+  "final_language": "en-IN",
+  "language_switches": 0,
+  "language_history": [],
+  "conversation": [
+    {
+      "speaker": "AI",
+      "text": "Hello, I am calling from the finance agency regarding your loan payment. May I know your current payment status?",
+      "timestamp": "2026-02-11T08:53:57.418759",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "I will pay day after tomorrow, is it fine?",
+      "timestamp": "2026-02-11T08:54:03.380143",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "Thank you for letting us know. Could you please confirm the specific date you expect to make the payment?",
+      "timestamp": "2026-02-11T08:54:09.523020",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "Okay.",
+      "timestamp": "2026-02-11T08:54:15.607126",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "Thank you. Just to confirm, are you referring to day.",
+      "timestamp": "2026-02-11T08:54:19.945420",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "I will be paying it on 12th February 2026.",
+      "timestamp": "2026-02-11T08:54:25.553921",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "Thank you for confirming the payment date. We will look forward.",
+      "timestamp": "2026-02-11T08:54:32.991047",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "Okay. Okay. Thank you so much.",
+      "timestamp": "2026-02-11T08:54:40.415256",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "Thank you for your time. We appreciate you confirming the.",
+      "timestamp": "2026-02-11T08:54:48.371095",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "Okay, Good Bye, Take care.",
+      "timestamp": "2026-02-11T08:54:55.506408",
+      "language": "en-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "Thank you for your time. We look forward to receiving your payment on February 12, 2026.",
+      "timestamp": "2026-02-11T08:54:59.335545",
+      "language": "en-IN"
+    }
+  ],
+  "ai_analysis": {
+    "summary": "The AI agent contacted the borrower regarding an overdue loan payment. The borrower committed to making the payment on a specific future date and confirmed this date with the agent.",
+    "sentiment": "Positive",
+    "sentiment_reasoning": "The borrower was cooperative, polite, and willingly provided a clear payment date. There were no signs of frustration or negativity.",
+    "intent": "Will Pay",
+    "intent_reasoning": "The borrower explicitly stated 'I will pay day after tomorrow' and later confirmed 'I will be paying it on 12th February 2026', indicating a clear commitment to make a payment.",
+    "payment_date": "2026-02-12"
+  },
+  "is_dummy": true,
+  "note": "This is a simulated conversation for testing purposes. No actual call was made."
+}

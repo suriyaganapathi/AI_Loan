@@ -1,0 +1,172 @@
+2026-02-10 23:19:17 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:17 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:17 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:17 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:17 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:17 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:17 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:17 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:17 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:17 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:18 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:18 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:18 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:18 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:18 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:18 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:18 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:18 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:18 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:18 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:19 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:19 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:19 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:19 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:19 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:19 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:19 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:19 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:19 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:19 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:20 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:20 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:20 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:20 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:20 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:20 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:20 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:20 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:20 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:20 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:21 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:21 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:21 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:21 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-10 23:19:21 - categorization_api - INFO - Unified endpoint called - File: None, Period: More_than_7_days
+2026-02-10 23:19:21 - categorization_api - ERROR - No cached data found and no file uploaded
+2026-02-11 08:50:47 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_1.xlsx, Period: None
+2026-02-11 08:50:47 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_1.xlsx
+2026-02-11 08:50:47 - categorization_api - INFO - File size: 0.01MB
+2026-02-11 08:50:47 - categorization_api - INFO - Reading file contents...
+2026-02-11 08:50:47 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 08:50:47 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6
+2026-02-11 08:50:47 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 08:50:47 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 08:50:47 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 08:50:47 - categorization_api - INFO - 💾 Persistent cache saved to data_cache.pkl
+2026-02-11 08:50:47 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 08:50:47 - categorization_api - INFO - Cached dataframe shape: (27, 39)
+2026-02-11 08:50:47 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 08:50:47 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 08:50:47 - categorization_api - INFO - Available detail columns: ['NO', 'BORROWER', 'AMOUNT', 'EMI', 'cell1', 'Payment_Category', 'indicator_color']
+2026-02-11 08:50:47 - categorization_api - INFO - Request completed successfully in 0.12 seconds
+2026-02-11 09:07:35 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_new.xlsx, Period: None
+2026-02-11 09:07:35 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_new.xlsx
+2026-02-11 09:07:35 - categorization_api - INFO - File size: 0.01MB
+2026-02-11 09:07:35 - categorization_api - INFO - Reading file contents...
+2026-02-11 09:07:35 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 09:07:35 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6
+2026-02-11 09:07:35 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 09:07:35 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 09:07:35 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 09:07:35 - categorization_api - INFO - 💾 Persistent cache saved to data_cache.pkl
+2026-02-11 09:07:35 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 09:07:35 - categorization_api - INFO - Cached dataframe shape: (27, 39)
+2026-02-11 09:07:35 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 09:07:35 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 09:07:35 - categorization_api - INFO - Available detail columns: ['NO', 'BORROWER', 'AMOUNT', 'EMI', 'cell1', 'Payment_Category', 'indicator_color', 'preferred_language']
+2026-02-11 09:07:35 - categorization_api - INFO - Request completed successfully in 0.11 seconds
+2026-02-11 09:10:17 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_new.xlsx, Period: None
+2026-02-11 09:10:17 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_new.xlsx
+2026-02-11 09:10:17 - categorization_api - INFO - File size: 0.01MB
+2026-02-11 09:10:17 - categorization_api - INFO - Reading file contents...
+2026-02-11 09:10:17 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 09:10:17 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6
+2026-02-11 09:10:17 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 09:10:17 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 09:10:17 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 09:10:17 - categorization_api - INFO - 💾 Persistent cache saved to data_cache.pkl
+2026-02-11 09:10:17 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 09:10:17 - categorization_api - INFO - Cached dataframe shape: (27, 39)
+2026-02-11 09:10:17 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 09:10:17 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 09:10:17 - categorization_api - INFO - Available detail columns: ['NO', 'BORROWER', 'AMOUNT', 'EMI', 'cell1', 'Payment_Category', 'indicator_color', 'preferred_language']
+2026-02-11 09:10:17 - categorization_api - INFO - Request completed successfully in 0.07 seconds
+2026-02-11 09:13:03 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_new.xlsx, Period: None
+2026-02-11 09:13:03 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_new.xlsx
+2026-02-11 09:13:03 - categorization_api - INFO - File size: 0.01MB
+2026-02-11 09:13:03 - categorization_api - INFO - Reading file contents...
+2026-02-11 09:13:03 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 09:13:03 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6
+2026-02-11 09:13:03 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 09:13:03 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 09:13:03 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 09:13:03 - categorization_api - INFO - 💾 Persistent cache saved to data_cache.pkl
+2026-02-11 09:13:03 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 09:13:03 - categorization_api - INFO - Cached dataframe shape: (27, 39)
+2026-02-11 09:13:03 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 09:13:03 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 09:13:03 - categorization_api - INFO - Available detail columns: ['NO', 'BORROWER', 'AMOUNT', 'EMI', 'cell1', 'Payment_Category', 'indicator_color', 'preferred_language']
+2026-02-11 09:13:03 - categorization_api - INFO - Request completed successfully in 0.09 seconds
+2026-02-11 09:14:50 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_new.xlsx, Period: None
+2026-02-11 09:14:50 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_new.xlsx
+2026-02-11 09:14:50 - categorization_api - INFO - File size: 0.01MB
+2026-02-11 09:14:50 - categorization_api - INFO - Reading file contents...
+2026-02-11 09:14:50 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 09:14:50 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6
+2026-02-11 09:14:50 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 09:14:50 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 09:14:50 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 09:14:50 - categorization_api - INFO - 💾 Persistent cache saved to data_cache.pkl
+2026-02-11 09:14:50 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 09:14:50 - categorization_api - INFO - Cached dataframe shape: (27, 39)
+2026-02-11 09:14:50 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 09:14:50 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 09:14:50 - categorization_api - INFO - Available detail columns: ['NO', 'BORROWER', 'AMOUNT', 'EMI', 'cell1', 'Payment_Category', 'indicator_color', 'preferred_language']
+2026-02-11 09:14:50 - categorization_api - INFO - Request completed successfully in 0.04 seconds
+2026-02-11 09:18:48 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_new.xlsx, Period: None
+2026-02-11 09:18:48 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_new.xlsx
+2026-02-11 09:18:48 - categorization_api - INFO - File size: 0.01MB
+2026-02-11 09:18:48 - categorization_api - INFO - Reading file contents...
+2026-02-11 09:18:48 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 09:18:48 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6
+2026-02-11 09:18:48 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 09:18:48 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 09:18:48 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 09:18:48 - categorization_api - INFO - 💾 Persistent cache saved to data_cache.pkl
+2026-02-11 09:18:48 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 09:18:48 - categorization_api - INFO - Cached dataframe shape: (27, 39)
+2026-02-11 09:18:48 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 09:18:48 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 09:18:48 - categorization_api - INFO - Available detail columns: ['NO', 'BORROWER', 'AMOUNT', 'EMI', 'cell1', 'Payment_Category', 'indicator_color', 'preferred_language']
+2026-02-11 09:18:48 - categorization_api - INFO - Request completed successfully in 0.07 seconds
+2026-02-11 09:19:17 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_new.xlsx, Period: None
+2026-02-11 09:19:17 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_new.xlsx
+2026-02-11 09:19:17 - categorization_api - INFO - File size: 0.01MB
+2026-02-11 09:19:17 - categorization_api - INFO - Reading file contents...
+2026-02-11 09:19:17 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 09:19:17 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6
+2026-02-11 09:19:17 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 09:19:17 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 09:19:17 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 09:19:17 - categorization_api - INFO - 💾 Persistent cache saved to data_cache.pkl
+2026-02-11 09:19:17 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 09:19:17 - categorization_api - INFO - Cached dataframe shape: (27, 39)
+2026-02-11 09:19:17 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 09:19:17 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 09:19:17 - categorization_api - INFO - Available detail columns: ['NO', 'BORROWER', 'AMOUNT', 'EMI', 'cell1', 'Payment_Category', 'indicator_color', 'preferred_language']
+2026-02-11 09:19:17 - categorization_api - INFO - Request completed successfully in 0.10 seconds
+2026-02-11 13:50:36 - categorization_api - INFO - Unified endpoint called - File: CBE_ARR_dummy_data_new.xlsx, Period: None
+2026-02-11 13:50:36 - categorization_api - INFO - Processing file upload: CBE_ARR_dummy_data_new.xlsx
+2026-02-11 13:50:36 - categorization_api - INFO - File size: 0.02MB
+2026-02-11 13:50:36 - categorization_api - INFO - Reading file contents...
+2026-02-11 13:50:37 - categorization_api - INFO - Loaded Excel file with 27 rows
+2026-02-11 13:50:37 - categorization_api - INFO - Columns found: AC, NO, BORROWER, STOCK, NOF ARREAR, ARR %, ARREARS, AFC, LAST DUE REVD DATE, ASSET, MODEL, REG NO, AMOUNT, CONTRACT EXPIRY, TERM, cell1, cell2, col_dues, REPORT, CONTRACT DATE, FIRST DUE DATE, EMI, STATUS, DUE DATE, GUARANTOR-1, G_CELL1, G_CELL1.1, GUARANTOR-2, G2_CELL1, G2_CELL2, REMARKS, DUE_MONTH_2, DUE_MONTH_3, DUE_MONTH_4, DUE_MONTH_5, preferred_language, DUE_MONTH_6, PAYMENT_CONFIRMATION, FOLLOW_UP_DATE, CALL_STATUS
+2026-02-11 13:50:37 - categorization_api - INFO - Dataframe optimized for processing
+2026-02-11 13:50:37 - categorization_api - INFO - Applying payment history categorization...
+2026-02-11 13:50:37 - categorization_api - INFO - Applying due date categorization...
+2026-02-11 13:50:37 - categorization_api - INFO - Data cached successfully for subsequent requests
+2026-02-11 13:50:37 - categorization_api - INFO - Cached dataframe shape: (27, 42)
+2026-02-11 13:50:37 - categorization_api - INFO - Cached columns: ['AC', 'NO', 'BORROWER', 'STOCK', 'NOF ARREAR', 'ARR %', 'ARREARS', 'AFC', 'LAST DUE REVD DATE', 'ASSET', 'MODEL', 'REG NO', 'AMOUNT', 'CONTRACT EXPIRY', 'TERM', 'cell1', 'cell2', 'col_dues', 'REPORT', 'CONTRACT DATE', 'FIRST DUE DATE', 'EMI', 'STATUS', 'DUE DATE', 'GUARANTOR-1', 'G_CELL1', 'G_CELL1.1', 'GUARANTOR-2', 'G2_CELL1', 'G2_CELL2', 'REMARKS', 'DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 'DUE_MONTH_5', 'preferred_language', 'DUE_MONTH_6', 'PAYMENT_CONFIRMATION', 'FOLLOW_UP_DATE', 'CALL_STATUS', 'Payment_Category', 'Due_Date_Category']
+2026-02-11 13:50:37 - categorization_api - INFO - Calculating KPIs for 27 borrowers
+2026-02-11 13:50:37 - categorization_api - INFO - Request completed successfully in 1.24 seconds

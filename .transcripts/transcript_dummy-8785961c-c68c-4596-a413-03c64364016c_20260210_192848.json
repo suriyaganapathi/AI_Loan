@@ -1,0 +1,60 @@
+{
+  "call_uuid": "dummy-8785961c-c68c-4596-a413-03c64364016c",
+  "borrower_id": "BRW003",
+  "phone_number": "+913333333333",
+  "start_time": "2026-02-10T19:28:43.024181",
+  "end_time": "2026-02-10T19:29:17.162039",
+  "duration_seconds": 34.14,
+  "preferred_language": "ta-IN",
+  "final_language": "ta-IN",
+  "language_switches": 0,
+  "language_history": [],
+  "conversation": [
+    {
+      "speaker": "AI",
+      "text": "வணக்கம், நான் நிதி நிறுவனத்திலிருந்து உங்கள் கடன் செலுத்துதல் பற்றி அழைக்கிறேன். உங்கள் தற்போதைய கட்டண நிலையை தயவுசெய்து கூறுங்கள்?",
+      "timestamp": "2026-02-10T19:28:49.682603",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "நான் நாளை மறுநாள் செலுத்துகிறேன், சரியா?",
+      "timestamp": "2026-02-10T19:28:55.183608",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "நன்றி. குறிப்பிட்ட தேதியை கூற முடியுமா?",
+      "timestamp": "2026-02-10T19:28:59.378205",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "நான் பிப்ரவரி 12 அன்று செலுத்துவேன்.",
+      "timestamp": "2026-02-10T19:29:06.742321",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "நன்றி. பிப்ரவரி 12 அன்று உங்கள் கட்டணத்திற்காக காத்திருக்கிறோம்.",
+      "timestamp": "2026-02-10T19:29:12.186747",
+      "language": "ta-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "சரி, நன்றி.",
+      "timestamp": "2026-02-10T19:29:17.162039",
+      "language": "ta-IN"
+    }
+  ],
+  "ai_analysis": {
+    "summary": "The AI collection agent contacted the borrower regarding their overdue loan payment. The borrower committed to making the payment on a specific date in the near future. The AI acknowledged and confirmed this payment arrangement.",
+    "sentiment": "Positive",
+    "sentiment_reasoning": "The borrower was cooperative and responsive, directly providing a payment commitment without any signs of frustration, anger, or evasiveness. They clearly stated their intention and a specific date.",
+    "intent": "Will Pay",
+    "intent_reasoning": "The borrower explicitly stated 'I will pay the day after tomorrow' and then confirmed 'I will pay on February 12th,' indicating a clear commitment to make the payment.",
+    "payment_date": "2024-02-12"
+  },
+  "is_dummy": true,
+  "note": "This is a simulated conversation for testing purposes. No actual call was made."
+}

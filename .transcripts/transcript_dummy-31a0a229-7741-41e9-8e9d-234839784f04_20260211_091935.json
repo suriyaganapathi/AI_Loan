@@ -1,0 +1,60 @@
+{
+  "call_uuid": "dummy-31a0a229-7741-41e9-8e9d-234839784f04",
+  "borrower_id": "11689",
+  "phone_number": "7092105433",
+  "start_time": "2026-02-11T09:19:31.620563",
+  "end_time": "2026-02-11T09:20:04.364176",
+  "duration_seconds": 32.74,
+  "preferred_language": "hi-IN",
+  "final_language": "hi-IN",
+  "language_switches": 0,
+  "language_history": [],
+  "conversation": [
+    {
+      "speaker": "AI",
+      "text": "नमस्ते, मैं वित्त एजेंसी से आपके लोन भुगतान के बारे में कॉल कर रहा हूं। कृपया अपनी वर्तमान भुगतान स्थिति बताएं?",
+      "timestamp": "2026-02-11T09:19:36.896448",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "मैं परसों पेमेंट कर दूंगा, ठीक है?",
+      "timestamp": "2026-02-11T09:19:41.191852",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "धन्यवाद। क्या आप कृपया विशिष्ट तारीख बता सकते हैं?",
+      "timestamp": "2026-02-11T09:19:45.621838",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "मैं 12 फरवरी को भुगतान कर दूंगा।",
+      "timestamp": "2026-02-11T09:19:51.196795",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "AI",
+      "text": "धन्यवाद। हम 12 फरवरी को आपके भुगतान का इंतजार करेंगे।",
+      "timestamp": "2026-02-11T09:19:58.158801",
+      "language": "hi-IN"
+    },
+    {
+      "speaker": "User",
+      "text": "ठीक है, धन्यवाद।",
+      "timestamp": "2026-02-11T09:20:04.364176",
+      "language": "hi-IN"
+    }
+  ],
+  "ai_analysis": {
+    "summary": "The AI collection agent contacted the borrower regarding an outstanding loan payment. The borrower committed to making the payment on February 12th, which the AI agent acknowledged and confirmed.",
+    "sentiment": "Positive",
+    "sentiment_reasoning": "The borrower was cooperative, clearly stated their intention to pay, provided a specific date when asked, and ended the conversation politely.",
+    "intent": "Will Pay",
+    "intent_reasoning": "The borrower explicitly stated 'मैं परसों पेमेंट कर दूंगा' (I will make the payment day after tomorrow) and then specified 'मैं 12 फरवरी को भुगतान कर दूंगा' (I will make the payment on February 12th), indicating a clear commitment to pay.",
+    "payment_date": "2024-02-12"
+  },
+  "is_dummy": true,
+  "note": "This is a simulated conversation for testing purposes. No actual call was made."
+}
