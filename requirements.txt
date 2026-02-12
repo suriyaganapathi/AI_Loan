@@ -37,3 +37,9 @@ WebSocket
 pandas
 openpyxl
 
+# MongoDB
+pymongo
+
+
+# SSL certificates
+certifi
