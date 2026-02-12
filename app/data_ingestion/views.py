@@ -104,7 +104,7 @@ async def unified_data_endpoint(
             
             # Verify required columns
             required_columns = ['DUE_MONTH_2', 'DUE_MONTH_3', 'DUE_MONTH_4', 
-                              'DUE_MONTH_5', 'DUE_MONTH_6', 'STATUS', 'LAST DUE REVD DATE']
+                                'DUE_MONTH_5', 'DUE_MONTH_6', 'STATUS', 'LAST DUE REVD DATE']
             
             missing_columns = [col for col in required_columns if col not in df.columns]
             
@@ -132,6 +132,38 @@ async def unified_data_endpoint(
             logger.info("Data cached successfully for subsequent requests")
             logger.info(f"Cached dataframe shape: {cached_dataframe.shape}")
             logger.info(f"Cached columns: {cached_dataframe.columns.tolist()}")
+
+            # SYNC TO MONGODB (For Reports View)
+            logger.info("DEBUG: Starting MongoDB sync block...")
+            try:
+                logger.info("DEBUG: Importing get_call_data_collection...")
+                from .db import get_call_data_collection
+                
+                logger.info("DEBUG: Getting collection...")
+                collection = get_call_data_collection()
+                
+                logger.info("DEBUG: Converting dataframe to records...")
+                records = df.to_dict('records')
+                logger.info(f"DEBUG: Converted {len(records)} records.")
+                
+                # Handle NaN/None for MongoDB
+                for record in records:
+                    for key, value in record.items():
+                        if pd.isna(value):
+                            record[key] = None
+                            
+                # Replace existing data
+                logger.info("DEBUG: Deleting old data...")
+                collection.delete_many({})
+                
+                if records:
+                    logger.info("DEBUG: Inserting new data...")
+                    collection.insert_many(records)
+                    
+                logger.info(f"✅ Synced {len(records)} records to MongoDB for Reports view")
+            except Exception as e:
+                logger.error(f"⚠️ Failed to sync to MongoDB: {e}", exc_info=True)
+
             
         except HTTPException:
             raise
@@ -293,71 +325,317 @@ async def unified_data_endpoint(
 @router.get("/report_data")
 def get_report_data():
     """
-    Get specific columns for the Reports view.
+    Get specific columns for the Reports view from Local Cache (Parity with Dashboard).
     Columns: NO, BORROWER, AMOUNT, cell1, EMI, preferred_language, PAYMENT_CONFIRMATION, DATE, CALL_STATUS
     """
+    try:
+        # Fetch data from Local Cache
+        global cached_dataframe
+        if cached_dataframe is None:
+            cached_dataframe = load_cache()
+            
+        if cached_dataframe is None:
+            return {
+                "status": "error",
+                "message": "No data available. Please upload a file first using /upload endpoint.",
+                "data": []
+            }
+        
+        df = cached_dataframe.copy()
+        
+        # Define required columns and their mapping/defaults
+        columns_config = [
+            ("NO", ["NO", "No", "S.No"]),
+            ("BORROWER", ["BORROWER", "Borrower", "Customer Name"]),
+            ("AMOUNT", ["AMOUNT", "Amount", "Loan Amount"]),
+            ("cell1", ["cell1", "Mobile", "Phone"]),
+            ("EMI", ["EMI", "Emi"]),
+            ("LAST_DUE_REVD_DATE", ["LAST DUE REVD DATE", "Last Due Revd Date", "LAST_DUE_REVD_DATE"]),
+            ("FIRST_DUE_DATE", ["FIRST DUE DATE", "First Due Date", "FIRST_DUE_DATE"]),
+            ("preferred_language", ["preferred_language", "Language"]),
+            ("PAYMENT_CONFIRMATION", ["PAYMENT_CONFIRMATION", "Payment Confirmation"]),
+            ("DATE", ["DATE", "Date", "FOLLOW_UP_DATE", "Follow Up Date"]),
+            ("CALL_STATUS", ["CALL_STATUS", "Call Status", "Status"])
+        ]
+        
+        result_data = []
+        
+        # Pre-calculate column mapping
+        col_mapping = {}
+        for out_col, candidates in columns_config:
+            found_col = None
+            for cand in candidates:
+                if cand in df.columns:
+                    found_col = cand
+                    break
+            col_mapping[out_col] = found_col
+
+        # Helper to format dates
+        def format_date_val(val):
+            if pd.isna(val) or val is None or val == "":
+                return ""
+            try:
+                # Try parsing as datetime
+                dt = pd.to_datetime(val)
+                return dt.strftime('%Y-%m-%d')
+            except:
+                # If parsing fails, just return as string (maybe clean "00:00:00")
+                s = str(val)
+                if "00:00:00" in s:
+                    return s.replace("00:00:00", "").strip()
+                return s
+
+        # Iterate rows
+        for _, row in df.iterrows():
+            record = {}
+            for out_col, src_col in col_mapping.items():
+                if src_col:
+                    val = row[src_col]
+                    
+                    # Special handling for Date columns
+                    if out_col in ["LAST_DUE_REVD_DATE", "FIRST_DUE_DATE", "DATE", "PAYMENT_CONFIRMATION"]:
+                        val = format_date_val(val)
+                    else:
+                        # Handle NaN/None for other cols
+                        if pd.isna(val) or val is None:
+                            val = ""
+                        else:
+                            val = str(val)
+                else:
+                    val = "" # Column not found
+                
+                record[out_col] = val
+                
+            result_data.append(record)
+            
+        return {
+            "status": "success",
+            "count": len(result_data),
+            "data": result_data
+        }
+        
+    except Exception as e:
+        logger.error(f"❌ Error fetching data from Local Cache: {e}")
+        return {
+            "status": "error",
+            "message": f"Error fetching data: {str(e)}",
+            "data": []
+        }
+
+def update_call_status(borrower_id, call_status, payment_confirmation=None, follow_up_date=None):
+    """
+    Update call status and analysis results in the cached dataframe
+    """
     global cached_dataframe
-    
-    # Load cache if not in memory
     if cached_dataframe is None:
         cached_dataframe = load_cache()
     
     if cached_dataframe is None:
-        return {
-            "status": "error",
-            "message": "No data available. Please upload a file first on the Dashboard.",
-            "data": []
-        }
-    
-    df = cached_dataframe.copy()
-    
-    # Define required columns and their mapping/defaults
-    # Format: (Output Name, Input Candidates/Default)
-    columns_config = [
-        ("NO", ["NO", "No", "S.No"]),
-        ("BORROWER", ["BORROWER", "Borrower", "Customer Name"]),
-        ("AMOUNT", ["AMOUNT", "Amount", "Loan Amount"]),
-        ("cell1", ["cell1", "Mobile", "Phone"]),
-        ("EMI", ["EMI", "Emi"]),
-        ("preferred_language", ["preferred_language", "Language"]),
-        ("PAYMENT_CONFIRMATION", ["PAYMENT_CONFIRMATION", "Payment Confirmation"]),
-        ("DATE", ["DATE", "Date", "FOLLOW_UP_DATE", "Follow Up Date"]),
-        ("CALL_STATUS", ["CALL_STATUS", "Call Status", "Status"])
-    ]
-    
-    result_data = []
-    
-    # Pre-calculate column mapping
-    col_mapping = {}
-    for out_col, candidates in columns_config:
-        found_col = None
-        for cand in candidates:
-            if cand in df.columns:
-                found_col = cand
-                break
+        logger.warning(f"Cannot update call status for {borrower_id}: No data loaded")
+        return False
         
-        col_mapping[out_col] = found_col
+    try:
+        # Find row index for borrower
+        # Assuming 'NO' is the ID column
+        mask = cached_dataframe['NO'].astype(str) == str(borrower_id)
+        if not mask.any():
+            logger.warning(f"Borrower ID {borrower_id} not found in cache")
+            return False
+            
+        idx = cached_dataframe.index[mask]
+        
+        # Update fields
+        cached_dataframe.loc[idx, 'CALL_STATUS'] = call_status
+        if payment_confirmation:
+            cached_dataframe.loc[idx, 'PAYMENT_CONFIRMATION'] = payment_confirmation
+        if follow_up_date:
+            cached_dataframe.loc[idx, 'FOLLOW_UP_DATE'] = follow_up_date # Maps to DATE in report
+            
+        # Save back to cache
+        save_cache(cached_dataframe)
+        logger.info(f"✅ Updated status for {borrower_id}: {call_status} | {payment_confirmation}")
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error updating call status: {e}")
+        return False
 
-    # Iterate rows
-    for _, row in df.iterrows():
-        record = {}
-        for out_col, src_col in col_mapping.items():
-            if src_col:
-                val = row[src_col]
-                # Handle NaN/None
-                if pd.isna(val):
-                    val = ""
-                else:
-                    val = str(val)
-            else:
-                val = "" # Column not found
-            
-            record[out_col] = val
-            
-        result_data.append(record)
+
+
+# ============================================================================
+# NEW MONGODB UPLOAD ENDPOINT
+# ============================================================================
+
+from .db import get_call_data_collection
+from datetime import datetime
+
+@router.post("/upload")
+async def upload_dataset_to_mongodb(file: UploadFile = File(None)):
+    """
+    Upload CSV/XLSX file, validate, parse, and store in MongoDB
+    
+    Purpose:
+    - Upload CSV/XLSX
+    - Validate file
+    - Parse rows
+    - Store data in MongoDB collection 'call_data'
+    """
+    start_time = time.time()
+    logger.info(f"[UPLOAD] Received file upload request")
+    
+    if not file:
+        logger.error("[ERROR] No file uploaded")
+        raise HTTPException(
+            status_code=400,
+            detail="No file uploaded. Please provide a file with key 'file'."
+        )
+
+    logger.info(f"[UPLOAD] Processing file: {file.filename}")
+    
+    # Step 1: Validate file extension
+    file_ext = os.path.splitext(file.filename)[1].lower()
+    if file_ext not in Config.ALLOWED_EXTENSIONS:
+        logger.error(f"[ERROR] Invalid file type: {file_ext}")
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid file type. Allowed: {Config.ALLOWED_EXTENSIONS}"
+        )
+    
+    # Step 2: Read file content
+    try:
+        contents = await file.read()
+        file_size_kb = len(contents) / 1024
+        logger.info(f"[FILE] File size: {file_size_kb:.2f} KB")
         
+        # Validate file size (manual check since we have bytes)
+        size_mb = file_size_kb / 1024
+        if size_mb > Config.MAX_FILE_SIZE_MB:
+            logger.error(f"[ERROR] File too large: {size_mb:.2f}MB (max: {Config.MAX_FILE_SIZE_MB}MB)")
+            raise HTTPException(
+                status_code=400,
+                detail=f"File too large. Maximum size: {Config.MAX_FILE_SIZE_MB}MB"
+            )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"[ERROR] Error reading file: {e}")
+        raise HTTPException(status_code=400, detail=f"Error reading file: {str(e)}")
+    
+    # Step 3: Parse file into DataFrame
+    try:
+        if file_ext == '.csv':
+            df = pd.read_csv(io.BytesIO(contents))
+        else:  # .xlsx or .xls
+            df = pd.read_excel(io.BytesIO(contents))
+        
+        logger.info(f"[SUCCESS] File parsed successfully. Rows: {len(df)}, Columns: {len(df.columns)}")
+        
+    except Exception as e:
+        logger.error(f"[ERROR] Error parsing file: {e}")
+        raise HTTPException(status_code=400, detail=f"Error parsing file: {str(e)}")
+    
+    # Step 4: Normalize column names
+    df = normalize_column_names(df)
+    logger.info(f"[SUCCESS] Column names normalized")
+    
+    # Step 5: Convert DataFrame to list of records for MongoDB
+    try:
+        records = df.to_dict('records')
+        
+        # Add metadata to each record
+        for record in records:
+            record['_uploaded_at'] = datetime.utcnow()
+            record['_source_file'] = file.filename
+            
+            # Convert any NaN values to None for MongoDB
+            for key, value in record.items():
+                if pd.isna(value):
+                    record[key] = None
+        
+        logger.info(f"[SUCCESS] Converted {len(records)} records for MongoDB")
+        
+    except Exception as e:
+        logger.error(f"[ERROR] Error converting data: {e}")
+        raise HTTPException(status_code=500, detail=f"Error converting data: {str(e)}")
+    
+    # Step 6: Store in MongoDB
+    try:
+        collection = get_call_data_collection()
+        
+        # Clear existing data and insert new
+        collection.delete_many({})  # Remove old data
+        result = collection.insert_many(records)
+        
+        logger.info(f"[SUCCESS] Successfully inserted {len(result.inserted_ids)} records into MongoDB")
+        
+    except Exception as e:
+        logger.error(f"[ERROR] MongoDB error: {e}")
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+    
+    processing_time = time.time() - start_time
+    
     return {
         "status": "success",
-        "count": len(result_data),
-        "data": result_data
+        "message": "File uploaded and stored in MongoDB successfully",
+        "file_name": file.filename,
+        "rows_inserted": len(records),
+        "columns": list(df.columns),
+        "processing_time": f"{processing_time:.2f}s"
     }
+
+# ============================================================================
+# NEW MONGODB FETCH ENDPOINT
+# ============================================================================
+
+@router.get("/customers")
+async def get_customers(
+    NO: Optional[str] = None,
+    BORROWER: Optional[str] = None
+):
+    """
+    Fetch customer data from MongoDB.
+    
+    Query Params:
+    - NO: Filter by exact Borrower ID (NO column)
+    - BORROWER: Filter by Borrower Name (partial match, case-insensitive)
+    """
+    try:
+        collection = get_call_data_collection()
+        query = {}
+        
+        # Build query based on parameters
+        if NO:
+            # Search for exact match on 'NO' column (stored as string or number in DB)
+            # We try both just in case
+            query["$or"] = [
+                {"NO": NO},
+                {"NO": int(NO)} if NO.isdigit() else {"NO": NO}
+            ]
+        elif BORROWER:
+            # Case-insensitive regex search on 'BORROWER' column
+            query["BORROWER"] = {"$regex": BORROWER, "$options": "i"}
+            
+        # Execute query
+        # Exclude internal MongoDB _id field
+        cursor = collection.find(query, {"_id": 0})
+        
+        # Convert to list
+        results = list(cursor)
+        
+        return {
+            "status": "success",
+            "count": len(results),
+            "filters": {
+                "NO": NO,
+                "BORROWER": BORROWER
+            },
+            "data": results
+        }
+        
+    except Exception as e:
+        logger.error(f"[ERROR] Error fetching customers: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Database error: {str(e)}"
+        )

@@ -12,6 +12,7 @@ import threading
 from flask import Flask, request, jsonify
 from flask_sock import Sock
 
+from app.data_ingestion.views import update_call_status
 from app.ai_calling.service import (
     call_data,
     ConversationHandler,
@@ -61,8 +62,9 @@ def answer_webhook():
     from_number = data.get('from')
     to_number = data.get('to')
     
-    # Get preferred language from query parameter (default to English)
+    # Get preferred language and borrower_id
     preferred_language = data.get('preferred_language', 'en-IN')
+    borrower_id = data.get('borrower_id') # Extract borrower_id
     
     # Validate language
     if preferred_language not in settings.LANGUAGE_CONFIG:
@@ -76,10 +78,11 @@ def answer_webhook():
     print(f"To: {to_number}")
     print(f"Call UUID: {call_uuid}")
     print(f"Preferred Language: {preferred_language}")
+    print(f"Borrower ID: {borrower_id}")
     print(f"{'*'*60}\n")
     
-    # Create conversation handler with preferred language
-    handler = ConversationHandler(call_uuid, preferred_language=preferred_language)
+    # Create conversation handler with preferred language and borrower ID
+    handler = ConversationHandler(call_uuid, preferred_language=preferred_language, borrower_id=borrower_id)
     call_data[call_uuid] = handler
     
     # Get greeting in preferred language
@@ -143,7 +146,6 @@ def answer_webhook():
     
     return jsonify(ncco)
 
-
 @flask_app.route('/webhooks/event', methods=['GET', 'POST'])
 def event_webhook():
     """Handle call events"""
@@ -160,16 +162,34 @@ def event_webhook():
     event_type = data.get('status')
     call_uuid = data.get('uuid') or data.get('conversation_uuid')
     
-    print(f"[EVENT] {event_type} | Call: {call_uuid}")
+    # Log less verbose events
+    if event_type not in ['ringing', 'answered']:
+        print(f"[EVENT] {event_type} | Call: {call_uuid}")
     
     # Save transcript on completion
     if event_type == 'completed' and call_uuid in call_data:
         handler = call_data[call_uuid]
         handler.is_active = False
-        filename = handler.save_transcript()
+        
+        # Unpack tuple return
+        filename, ai_analysis = handler.save_transcript()
         
         lang_name = settings.LANGUAGE_CONFIG.get(handler.current_language, {}).get("name", handler.current_language)
         print(f"[SUCCESS] ✅ Transcript saved: {filename} (Language: {lang_name})")
+        
+        # Update Reports Cache if borrower_id exists
+        if handler.borrower_id:
+            print(f"[UPDATE] Updating status for Borrower {handler.borrower_id}...")
+            call_status = "Completed"
+            payment_conf = ai_analysis.get('intent', 'No Response') if ai_analysis else "No Analysis"
+            follow_up = ai_analysis.get('payment_date') if ai_analysis else None
+            
+            update_call_status(
+                borrower_id=handler.borrower_id,
+                call_status=call_status,
+                payment_confirmation=payment_conf,
+                follow_up_date=follow_up
+            )
         
         # Cleanup
         del call_data[call_uuid]

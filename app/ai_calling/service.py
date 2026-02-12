@@ -621,7 +621,7 @@ Generate a natural, conversational response in {lang_name}. Keep it brief but AL
 class ConversationHandler:
     """Manages conversation state and transcript"""
     
-    def __init__(self, call_uuid, preferred_language="en-IN"):
+    def __init__(self, call_uuid, preferred_language="en-IN", borrower_id=None):
         self.call_uuid = call_uuid
         self.conversation = []
         self.context = {}
@@ -630,6 +630,7 @@ class ConversationHandler:
         self.preferred_language = preferred_language  # Store preferred language
         self.current_language = preferred_language    # Start with preferred language
         self.language_history = []
+        self.borrower_id = borrower_id # Store borrower ID for updates
         
     def add_entry(self, speaker, text):
         """Add conversation entry"""
@@ -709,14 +710,14 @@ class ConversationHandler:
                 print(f"📅 Payment Date: {ai_analysis.get('payment_date')}")
             print(f"{'='*60}\n")
         
-        return filename
+        return filename, ai_analysis
 
 
 # ============================================================
 # CALL MANAGEMENT
 # ============================================================
 
-def make_outbound_call(to_number, language="en-IN"):
+def make_outbound_call(to_number, language="en-IN", borrower_id=None):
     """Trigger an outbound call with preferred language"""
     if not voice:
         return {"success": False, "error": "Vonage client not initialized"}
@@ -728,6 +729,9 @@ def make_outbound_call(to_number, language="en-IN"):
     try:
         # Create call with language parameter in answer URL
         answer_url = f'{settings.BASE_URL}/webhooks/answer?preferred_language={language}'
+        
+        if borrower_id:
+            answer_url += f"&borrower_id={borrower_id}"
         
         response = voice.create_call({
             'to': [{'type': 'phone', 'number': to_number}],
@@ -744,6 +748,7 @@ def make_outbound_call(to_number, language="en-IN"):
         print(f"To: {to_number}")
         print(f"UUID: {call_uuid}")
         print(f"Preferred Language: {language}")
+        print(f"Borrower ID: {borrower_id}")
         print(f"Answer URL: {answer_url}")
         print(f"Event URL: {settings.BASE_URL}/webhooks/event")
         print(f"{'*'*60}\n")
@@ -753,7 +758,8 @@ def make_outbound_call(to_number, language="en-IN"):
             "call_uuid": call_uuid,
             "status": getattr(response, 'status', 'initiated'),
             "to_number": to_number,
-            "language": language
+            "language": language,
+            "borrower_id": borrower_id
         }
         
     except Exception as e:

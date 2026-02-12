@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCurrentDate();
     setupEventListeners();
 
+    // Try to fetch latest data from server first
+    fetchDashboardData();
+
     // Recovery data from storage if it exists (Data in Local; View in Session)
     const savedData = localStorage.getItem('finance_data');
     const savedView = sessionStorage.getItem('current_view');
@@ -149,13 +152,17 @@ function showView(viewId) {
     currentView = viewId;
     sessionStorage.setItem('current_view', viewId);
 
+    // Allow upload in Dashboard and Reports
+    if (viewId === 'dashboard' || viewId === 'reports') {
+        if (headerActions) headerActions.style.display = 'flex';
+    } else {
+        if (headerActions) headerActions.style.display = 'none';
+    }
+
     if (viewId === 'dashboard') {
         currentBorrowerId = null;
         sessionStorage.removeItem('current_borrower_id');
         sessionStorage.removeItem('current_period_key');
-        if (headerActions) headerActions.style.display = 'flex';
-    } else {
-        if (headerActions) headerActions.style.display = 'none';
     }
 
     // Update Nav
@@ -178,6 +185,38 @@ function showView(viewId) {
         if (viewId === 'reports') {
             fetchReportData();
         }
+    }
+}
+
+// Fetch dashboard data from server (sync with cache)
+async function fetchDashboardData() {
+    console.log('Fetching dashboard data from server...');
+    try {
+        // POST to /data without file returns cached data
+        // Using POST because unified_data_endpoint is POST
+        const response = await fetch(`${API_BASE_URL}/data_ingestion/data?include_details=true`, {
+            method: 'POST'
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            if (data.status === 'success' && data.kpis) {
+                console.log('✅ Dashboard data fetched from server cache');
+                currentKpiData = data;
+                localStorage.setItem('finance_data', JSON.stringify(data));
+                updateDashboard(data);
+            } else {
+                console.log('ℹ️ No cached dashboard data available on server');
+            }
+        } else {
+            if (response.status === 400) {
+                console.log('ℹ️ Server cache is empty');
+            } else {
+                console.error('❌ Error fetching dashboard data:', response.status);
+            }
+        }
+    } catch (error) {
+        console.error('❌ Network error fetching dashboard data:', error);
     }
 }
 
@@ -659,6 +698,8 @@ function renderReportTable(data) {
             <td style="padding: 12px 16px;">${row.AMOUNT}</td>
             <td style="padding: 12px 16px;">${row.cell1}</td>
             <td style="padding: 12px 16px;">${row.EMI}</td>
+            <td style="padding: 12px 16px;">${row.LAST_DUE_REVD_DATE}</td>
+            <td style="padding: 12px 16px;">${row.FIRST_DUE_DATE}</td>
             <td style="padding: 12px 16px;">${row.preferred_language}</td>
             <td style="padding: 12px 16px;">${row.PAYMENT_CONFIRMATION}</td>
             <td style="padding: 12px 16px;">${row.DATE}</td>

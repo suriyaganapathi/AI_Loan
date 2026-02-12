@@ -15,13 +15,15 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 
-from app.ai_calling.service import (
-    make_outbound_call,
-    get_call_data_store,
-    gemini_client,
-    analyze_conversation_with_gemini,
-    ConversationHandler
-)
+from app.data_ingestion.views import update_call_status
+
+# ...
+
+# Removed duplicate process_single_call definition
+
+# ...
+
+# Removed duplicate make_single_call definition
 from config import settings
 
 
@@ -483,10 +485,25 @@ def process_single_call(borrower: BorrowerInfo, use_dummy_data: bool, normalized
             language=normalized_language,
             borrower_id=borrower.NO
         )
+        
+        # Update report status for dummy calls immediately
+        if call_result.get("success"):
+            ai_analysis = call_result.get("ai_analysis")
+            payment_conf = ai_analysis.get('intent', 'No Response') if ai_analysis else "No Analysis"
+            follow_up = ai_analysis.get('payment_date') if ai_analysis else None
+            
+            update_call_status(
+                borrower_id=borrower.NO,
+                call_status="Completed (Dummy)",
+                payment_confirmation=payment_conf,
+                follow_up_date=follow_up
+            )
+            
     else:
         call_result = make_outbound_call(
             to_number=borrower.cell1,
-            language=normalized_language
+            language=normalized_language,
+            borrower_id=borrower.NO
         )
     
     # Create response
@@ -740,11 +757,26 @@ async def make_single_call(request: SingleCallRequest):
             language=normalized_language,
             borrower_id=request.borrower_id
         )
+        
+        # Update report status for dummy calls immediately
+        if call_result.get("success") and request.borrower_id:
+            ai_analysis = call_result.get("ai_analysis")
+            payment_conf = ai_analysis.get('intent', 'No Response') if ai_analysis else "No Analysis"
+            follow_up = ai_analysis.get('payment_date') if ai_analysis else None
+            
+            update_call_status(
+                borrower_id=request.borrower_id,
+                call_status="Completed (Dummy)",
+                payment_confirmation=payment_conf,
+                follow_up_date=follow_up
+            )
+            
     else:
         print(f"[SINGLE CALL] Mode: REAL (making actual call)")
         call_result = make_outbound_call(
             to_number=request.to_number,
-            language=normalized_language
+            language=normalized_language,
+            borrower_id=request.borrower_id
         )
     
     if call_result.get("success"):
